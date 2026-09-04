@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prüfungsbogen HACCP und Lebensmittelhygiene · GLOBUS Fachmetzgerei</title>
+<style>
+  :root {
+    --globus-green: #2e7d32;
+    --globus-green-dark: #1b5e20;
+    --globus-orange: #f39c12;
+    --globus-orange-dark: #d68910;
+    --bg: #f5f6f7;
+    --card: #ffffff;
+    --text: #1c1c1c;
+    --muted: #6b6b6b;
+    --border: #e2e4e7;
+    --blue: #2c7cb0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 32px 16px 80px;
+    line-height: 1.55;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  header.top {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+  header.top h1 {
+    color: var(--globus-orange-dark);
+    margin: 0 0 6px;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+  }
+  header.top .sub {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px 20px;
+    background: #fafbfa;
+    border: 1px solid #d6e2d6;
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .meta-grid label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .meta-grid input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+  }
+  .qualifier {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .qualifier strong { color: var(--globus-green-dark); }
+
+  .levels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 20px 0 8px;
+  }
+  .level {
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .level h4 { margin: 0 0 4px; font-size: 14px; }
+  .level.koennen { background: #eaf4ea; border: 1px solid #cfe4cf; }
+  .level.koennen h4 { color: var(--globus-green-dark); }
+  .level.verstehen { background: #fdf3df; border: 1px solid #f6e2b2; }
+  .level.verstehen h4 { color: var(--globus-orange-dark); }
+  .level.verantworten { background: #e5f0f7; border: 1px solid #c4dcec; }
+  .level.verantworten h4 { color: var(--blue); }
+
+  section.chapter {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+  .chapter-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .chapter-number {
+    background: var(--globus-green);
+    color: #fff;
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+  }
+  .chapter-head h2 {
+    margin: 0;
+    font-size: 20px;
+    color: var(--text);
+  }
+  .task {
+    margin-bottom: 24px;
+  }
+  .task:last-child { margin-bottom: 0; }
+  .task-badge {
+    display: inline-block;
+    background: var(--globus-orange);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 8px;
+  }
+  .task-title {
+    font-weight: 600;
+    font-size: 16px;
+    display: inline;
+  }
+  .task-prompt {
+    margin-top: 10px;
+    color: var(--text);
+    font-size: 14.5px;
+  }
+  .task-prompt .label {
+    color: var(--globus-green-dark);
+    font-weight: 600;
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
+  .hint {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-style: italic;
+  }
+  textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+    margin-top: 6px;
+    background: #fff;
+  }
+  .options {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .option {
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.12s, border-color 0.12s;
+    font-size: 14.5px;
+  }
+  .option:hover { background: #f9fafb; border-color: #cfd2d6; }
+  .option input[type="radio"] {
+    margin-top: 3px;
+    accent-color: var(--globus-green);
+    flex-shrink: 0;
+  }
+  .option input[type="radio"]:checked + span {
+    font-weight: 500;
+  }
+  .option:has(input:checked) {
+    background: #eaf4ea;
+    border-color: var(--globus-green);
+  }
+
+  table.self {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  table.self th, table.self td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  table.self th {
+    background: #fdf3df;
+    color: var(--globus-orange-dark);
+    font-weight: 600;
+    font-size: 13.5px;
+  }
+  table.self td:not(:first-child) { text-align: center; width: 90px; }
+  table.self input[type="radio"] { accent-color: var(--globus-green); }
+
+  .signature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .signature-row .sig label { font-size: 13px; color: var(--muted); }
+  .signature-row .sig input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .submit-bar {
+    position: sticky;
+    bottom: 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    margin-top: 24px;
+  }
+  .submit-bar .info {
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .submit-bar .info strong { color: var(--text); }
+  button.submit {
+    background: var(--globus-green);
+    color: #fff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.12s;
+    white-space: nowrap;
+  }
+  button.submit:hover { background: var(--globus-green-dark); }
+
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 640px) {
+    body { padding: 16px 10px 80px; }
+    header.top, section.chapter { padding: 20px; }
+    .levels { grid-template-columns: 1fr; }
+    .signature-row { grid-template-columns: 1fr; }
+    .submit-bar { flex-direction: column; align-items: stretch; }
+    button.submit { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="top">
+  <h1>Kompetenznachweis HACCP und Lebensmittelhygiene</h1>
+  <div class="sub">Prüfungsbogen · GLOBUS Fachmetzgerei · Von Hand mit Herz</div>
+
+  <div class="meta-grid">
+    <div><label for="name">Name, Vorname</label><input type="text" id="name" name="name"></div>
+    <div><label for="markthalle">Markthalle</label><input type="text" id="markthalle" name="markthalle"></div>
+    <div><label for="bereich">Bereich</label><input type="text" id="bereich" name="bereich"></div>
+    <div><label for="datum">Datum</label><input type="date" id="datum" name="datum"></div>
+    <div><label for="vorgesetzter">Vorgesetzter</label><input type="text" id="vorgesetzter" name="vorgesetzter"></div>
+  </div>
+  <div class="qualifier"><strong>Qualifizierungsbereich:</strong> HACCP und Lebensmittelhygiene</div>
+
+  <div class="levels">
+    <div class="level koennen"><h4>Können</h4>Ich weiß, was ich tun muss und mache es richtig.</div>
+    <div class="level verstehen"><h4>Verstehen</h4>Ich weiß, warum es wichtig ist und welchen Sinn es hat.</div>
+    <div class="level verantworten"><h4>Verantworten</h4>Ich handle mit Verantwortung: für Kunden, Kollegen und die Qualität.</div>
+  </div>
+</header>
+
+<!-- Kapitel 1 -->
+<section class="chapter">
+  <div class="chapter-head"><div class="chapter-number">1</div><h2>Grundverständnis Lebensmittelhygiene und HACCP</h2></div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 1</span><span class="task-title">Lebensmittelhygiene erklären</span>
+    <div class="task-prompt">
+      <span class="label">Aufgabe:</span>
+      Erklären Sie in eigenen Worten, was Lebensmittelhygiene bedeutet.
+      <textarea data-key="A1_Erklaerung"></textarea>
+
+      <span class="label">Zusatzfrage:</span>
+      Warum ist Lebensmittelhygiene in der Fachmetzgerei besonders wichtig?
+      <textarea data-key="A1_Zusatz"></textarea>
+
+      <span class="label">Bildaufgabe:</span>
+      Im Prüfungsbogen sind mindestens 5 Hygienefehler auf dem Bild zu erkennen. Bitte benennen Sie hier die Fehler, die Ihnen aufgefallen sind.
+      <textarea data-key="A1_Bildfehler" placeholder="z. B. Getränk im Arbeitsbereich, Handy auf der Arbeitsfläche, ..."></textarea>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 2</span><span class="task-title">HACCP verstehen</span>
+    <div class="task-prompt">
+      Welchen Zweck hat HACCP im Umgang mit Lebensmitteln? <em>Bitte kreuzen Sie eine richtige Antwort an.</em>
+      <div class="options">
+        <label class="option"><input type="radio" name="A2" value="A"><span>HACCP dient vor allem dazu, Produkte schneller herzustellen und Arbeitszeit einzusparen.</span></label>
+        <label class="option"><input type="radio" name="A2" value="B"><span>HACCP hilft dabei, mögliche Gefahren im Umgang mit Lebensmitteln zu erkennen, zu bewerten und durch geeignete Maßnahmen zu beherrschen.</span></label>
+        <label class="option"><input type="radio" name="A2" value="C"><span>HACCP bedeutet, dass nur die Führungskraft für Hygiene und Lebensmittelsicherheit verantwortlich ist.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 3</span><span class="task-title">Gefahrenarten bei HACCP</span>
+    <div class="task-prompt">
+      Welche drei Gefahrenarten werden bei HACCP unterschieden? <em>Bitte kreuzen Sie eine richtige Antwort an.</em>
+      <div class="options">
+        <label class="option"><input type="radio" name="A3" value="A"><span>Biologische Gefahren, chemische Gefahren und physikalische Gefahren.</span></label>
+        <label class="option"><input type="radio" name="A3" value="B"><span>Persönliche Gefahren, technische Gefahren und organisatorische Gefahren.</span></label>
+        <label class="option"><input type="radio" name="A3" value="C"><span>Kleine Gefahren, mittlere Gefahren und große Gefahren.</span></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kapitel 2 -->
+<section class="chapter">
+  <div class="chapter-head"><div class="chapter-number">2</div><h2>Infektionsschutz und Personalhygiene</h2></div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 4</span><span class="task-title">Persönliche Hygiene vor Arbeitsbeginn</span>
+    <div class="task-prompt">
+      Welche Aussage beschreibt richtig, was vor Arbeitsbeginn beim Umgang mit offenen Lebensmitteln zu beachten ist?
+      <div class="options">
+        <label class="option"><input type="radio" name="A4" value="A"><span>Private Gegenstände gehören in den Spind, Arbeitskleidung muss sauber sein, Kopfbedeckung ist zu tragen, Schmuck ist abzulegen und die Hände müssen hygienisch sauber sein.</span></label>
+        <label class="option"><input type="radio" name="A4" value="B"><span>Private Gegenstände dürfen mitgenommen werden, wenn sie keinen direkten Kontakt zur Ware haben.</span></label>
+        <label class="option"><input type="radio" name="A4" value="C"><span>Schmuck und Uhr dürfen getragen werden, wenn sie regelmäßig gereinigt werden.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 5</span><span class="task-title">Schmuck beim Umgang mit offenen Lebensmitteln</span>
+    <div class="task-prompt">
+      Warum darf beim Umgang mit offenen Lebensmitteln kein Schmuck getragen werden?
+      <div class="options">
+        <label class="option"><input type="radio" name="A5" value="A"><span>Schmuck ist nur aus optischen Gründen nicht erwünscht.</span></label>
+        <label class="option"><input type="radio" name="A5" value="B"><span>Schmuck ist erlaubt, wenn er unter der Arbeitskleidung getragen wird.</span></label>
+        <label class="option"><input type="radio" name="A5" value="C"><span>Schmuck kann Keime tragen, die Händehygiene erschweren oder als Fremdkörper in Lebensmittel gelangen.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 6</span><span class="task-title">Situation aus dem Arbeitsalltag</span>
+    <div class="task-prompt">
+      <span class="label">Situation:</span>
+      Ein Mitarbeiter kommt aus der Pause zurück, nimmt sein Handy aus der Tasche und möchte direkt danach Ware verpacken.
+      <span class="label">Frage:</span>
+      Wie ist das korrekte Vorgehen?
+      <div class="options">
+        <label class="option"><input type="radio" name="A6" value="A"><span>Der Mitarbeiter darf direkt weiterarbeiten, weil das Handy nur kurz benutzt wurde.</span></label>
+        <label class="option"><input type="radio" name="A6" value="B"><span>Der Mitarbeiter muss vor dem Weiterarbeiten seine Hände hygienisch reinigen; private Gegenstände gehören nicht in den Arbeitsbereich.</span></label>
+        <label class="option"><input type="radio" name="A6" value="C"><span>Der Mitarbeiter darf weiterarbeiten, wenn er die Ware nicht direkt mit der Hand berührt.</span></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kapitel 3 -->
+<section class="chapter">
+  <div class="chapter-head"><div class="chapter-number">3</div><h2>Relevante Prozessschritte</h2></div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 7</span><span class="task-title">Die vier Prozessschritte benennen</span>
+    <div class="task-prompt">
+      Welche vier Prozessschritte sind in der GLOBUS Fachmetzgerei relevant?
+      <div class="options">
+        <label class="option"><input type="radio" name="A7" value="A"><span>Wareneingang, Lagerung, Produktion/Prepacking, Verkauf.</span></label>
+        <label class="option"><input type="radio" name="A7" value="B"><span>Einkauf, Büro, Personalplanung, Verkauf.</span></label>
+        <label class="option"><input type="radio" name="A7" value="C"><span>Bestellung, Werbung, Kasse, Reinigung.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 8</span><span class="task-title">Warum jeder Prozessschritt wichtig ist</span>
+    <div class="task-prompt">
+      Warum kann ein Fehler am Anfang des Prozesses später noch Folgen haben?
+      <div class="options">
+        <label class="option"><input type="radio" name="A8" value="A"><span>Weil sich Fehler fortsetzen können: Wenn Ware beim Wareneingang nicht richtig geprüft wird, kann sie später gelagert, verarbeitet oder verkauft werden, obwohl sie nicht einwandfrei ist.</span></label>
+        <label class="option"><input type="radio" name="A8" value="B"><span>Fehler am Wareneingang können später korrigiert werden.</span></label>
+        <label class="option"><input type="radio" name="A8" value="C"><span>Nur Fehler im Verkauf sind wichtig; frühere Prozessschritte sind für die Lebensmittelsicherheit nicht entscheidend.</span></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kapitel 4 -->
+<section class="chapter">
+  <div class="chapter-head"><div class="chapter-number">4</div><h2>Wareneingangskontrolle</h2></div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 9</span><span class="task-title">Wareneingang prüfen</span>
+    <div class="task-prompt">
+      Welche Punkte werden bei der Wareneingangskontrolle stichprobenartig geprüft?
+      <div class="options">
+        <label class="option"><input type="radio" name="A9" value="A"><span>Farbe der Arbeitskleidung, Pausenplanung, Regalhöhe und Dekoration.</span></label>
+        <label class="option"><input type="radio" name="A9" value="B"><span>Schädlingsbefall, Sauberkeit und Unversehrtheit der Umverpackungen, Umgebungstemperatur, MHD und Restlaufzeiten sowie Identitätskontrolle bei Rindfleisch, Bio und MSC.</span></label>
+        <label class="option"><input type="radio" name="A9" value="C"><span>Es reicht vollkommen aus, nur den Lieferschein zu überprüfen.</span></label>
+      </div>
+      <span class="label">Bildaufgabe:</span>
+      Im Prüfungsbogen sind mindestens 3 Hygienefehler auf dem Bild zu erkennen. Bitte benennen Sie hier die Fehler, die Ihnen aufgefallen sind.
+      <textarea data-key="A9_Bildfehler" placeholder="z. B. beschädigte Umverpackung, überschrittenes MHD, Temperatur zu hoch, ..."></textarea>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 10</span><span class="task-title">Dokumentation der Wareneingangsprüfung</span>
+    <div class="task-prompt">
+      Was muss bei der Wareneingangsprüfung dokumentiert werden?
+      <div class="options">
+        <label class="option"><input type="radio" name="A10" value="A"><span>Es reicht aus, wenn mündlich gesagt wird, dass die Lieferung in Ordnung war.</span></label>
+        <label class="option"><input type="radio" name="A10" value="B"><span>Dokumentiert werden nur Lieferungen, bei denen keine Auffälligkeiten festgestellt wurden.</span></label>
+        <label class="option"><input type="radio" name="A10" value="C"><span>Die Prüfung muss nachvollziehbar festgehalten werden; Datum und Unterschrift werden eingetragen, Auffälligkeiten werden dokumentiert und bei Grenzwertüberschreitungen werden Temperaturwerte festgehalten.</span></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kapitel 5 -->
+<section class="chapter">
+  <div class="chapter-head"><div class="chapter-number">5</div><h2>Lagerhaltung</h2></div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 11</span><span class="task-title">Ordnungsgemäße Lagerhaltung</span>
+    <div class="task-prompt">
+      Welche Aussage beschreibt wichtige Punkte der ordnungsgemäßen Lagerhaltung richtig?
+      <div class="options">
+        <label class="option"><input type="radio" name="A11" value="A"><span>Lager sauber und ordentlich halten, Lebensmittel bodenfrei lagern, Temperatur prüfen, FiFo beachten, Ware trennen, Lebensmittel abdecken oder verpacken und Kennzeichnung beachten.</span></label>
+        <label class="option"><input type="radio" name="A11" value="B"><span>Ware darf direkt auf dem Boden stehen, wenn sie verpackt ist.</span></label>
+        <label class="option"><input type="radio" name="A11" value="C"><span>Rohes und Gegartes dürfen zusammen gelagert werden, wenn sie im gleichen Kühlhaus stehen.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 12</span><span class="task-title">Folgen falscher Lagerhaltung</span>
+    <div class="task-prompt">
+      Was kann passieren, wenn die Regeln der ordnungsgemäßen Lagerhaltung nicht eingehalten werden?
+      <div class="options">
+        <label class="option"><input type="radio" name="A12" value="A"><span>Ware kann verderben, verwechselt werden oder hygienisch unsicher werden; außerdem kann es zu Beanstandungen bei Kontrollen kommen.</span></label>
+        <label class="option"><input type="radio" name="A12" value="B"><span>Es passiert nichts, solange die Ware später noch gut aussieht.</span></label>
+        <label class="option"><input type="radio" name="A12" value="C"><span>Falsche Lagerhaltung betrifft nur die Ordnung im Lager, aber nicht die Lebensmittelsicherheit.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 13</span><span class="task-title">FiFo erklären</span>
+    <div class="task-prompt">
+      Was bedeutet FiFo?
+      <div class="options">
+        <label class="option"><input type="radio" name="A13" value="A"><span>First In / Fast Out: Ware, die am schnellsten erreichbar ist, wird zuerst verwendet.</span></label>
+        <label class="option"><input type="radio" name="A13" value="B"><span>Food In / Food Out: Jede Ware darf beliebig verwendet werden, solange sie gekühlt ist.</span></label>
+        <label class="option"><input type="radio" name="A13" value="C"><span>First In / First Out: Ware, die zuerst eingegangen oder hergestellt wurde, wird zuerst verwendet oder verkauft.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 14</span><span class="task-title">FiFo anwenden</span>
+    <div class="task-prompt">
+      <span class="label">Situation:</span>
+      Im Kühlhaus stehen vier Kisten mit derselben Ware. Die Kisten wurden an unterschiedlichen Tagen eingelagert.
+      <span class="label">Aufgabe:</span>
+      Welche Kiste muss nach dem FiFo-Prinzip zuerst verwendet werden?
+      <div class="options">
+        <label class="option"><input type="radio" name="A14" value="A"><span>Die Kiste, die am vollsten ist.</span></label>
+        <label class="option"><input type="radio" name="A14" value="B"><span>Die Kiste mit dem ältesten Eingangs- oder Herstellungsdatum.</span></label>
+        <label class="option"><input type="radio" name="A14" value="C"><span>Die Kiste, die vorne steht und am leichtesten erreichbar ist.</span></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kapitel 6 -->
+<section class="chapter">
+  <div class="chapter-head"><div class="chapter-number">6</div><h2>Produktion / Prepacking</h2></div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 15</span><span class="task-title">Grundanforderungen in der Produktion</span>
+    <div class="task-prompt">
+      Was steht in der Produktion besonders im Mittelpunkt?
+      <div class="options">
+        <label class="option"><input type="radio" name="A15" value="A"><span>Hygienisch einwandfreie Arbeitsabläufe schaffen und Rückverfolgbarkeit sicherstellen.</span></label>
+        <label class="option"><input type="radio" name="A15" value="B"><span>Möglichst schnell arbeiten, auch wenn Dokumentation und Kennzeichnung später erfolgen.</span></label>
+        <label class="option"><input type="radio" name="A15" value="C"><span>Nur das fertige Produkt zählt; der Ablauf davor ist nicht entscheidend.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 16</span><span class="task-title">Produktionsablauf</span>
+    <div class="task-prompt">
+      Welche Reihenfolge beschreibt einen sinnvollen Ablauf in Produktion und Prepacking?
+      <div class="options">
+        <label class="option"><input type="radio" name="A16" value="A"><span>Dokumentation abschließen, Produkt verkaufen, danach Etikett und Tara prüfen.</span></label>
+        <label class="option"><input type="radio" name="A16" value="B"><span>Produkt nach Rezept herstellen, hygienisch arbeiten und sauber trennen, Produkt verpacken, Etikett prüfen, Tara prüfen, Dokumentation abschließen.</span></label>
+        <label class="option"><input type="radio" name="A16" value="C"><span>Produkt verpacken, Etikett prüfen, Rezept suchen, Tara prüfen, hygienisch arbeiten, Dokumentation weglassen.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 17</span><span class="task-title">Tara</span>
+    <div class="task-prompt">
+      Warum darf die Taraprüfung nicht vergessen werden?
+      <div class="options">
+        <label class="option"><input type="radio" name="A17" value="A"><span>Die Tara ist nur wichtig, wenn die Verpackung beschädigt ist.</span></label>
+        <label class="option"><input type="radio" name="A17" value="B"><span>Die Tara betrifft nur die Optik des Etiketts.</span></label>
+        <label class="option"><input type="radio" name="A17" value="C"><span>Eine falsche Tara kann zu falschem Gewicht und falschem Preis führen; Kunden können falsch belastet werden und bei Kontrollen kann es Beanstandungen geben.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 18</span><span class="task-title">Tara in der Praxis</span>
+    <div class="task-prompt">
+      <span class="label">Situation:</span>
+      Ein Mitarbeiter verpackt Fleisch in einer SB-Schale. Die Schale wiegt 25 g. An der Waage ist jedoch versehentlich eine Tara von 10 g eingestellt.
+      <span class="label">Aufgabe:</span>
+      Was kann dadurch passieren?
+      <div class="options">
+        <label class="option"><input type="radio" name="A18" value="A"><span>Das Nettogewicht kann falsch berechnet werden und dadurch kann auch der Preis falsch sein.</span></label>
+        <label class="option"><input type="radio" name="A18" value="B"><span>Die Ware wird automatisch länger haltbar.</span></label>
+        <label class="option"><input type="radio" name="A18" value="C"><span>Die Tara hat keinen Einfluss auf Gewicht oder Preis.</span></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kapitel 7 -->
+<section class="chapter">
+  <div class="chapter-head"><div class="chapter-number">7</div><h2>Verkauf</h2></div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 19</span><span class="task-title">MHD und Abverkaufszeit</span>
+    <div class="task-prompt">
+      <span class="label">Situation:</span>
+      Ein Produkt wird am 01.01.2026 hergestellt. Das MHD ist der 05.01.2026. Laut Schulungsbeispiel muss das Produkt am 02.01.2026 zu Verkaufsschluss ausgeräumt werden.
+      <span class="label">Aufgabe:</span>
+      Warum reicht es nicht aus, nur auf das MHD zu schauen?
+      <div class="options">
+        <label class="option"><input type="radio" name="A19" value="A"><span>Weil zusätzlich interne Abverkaufszeiten und Restlaufzeiten einzuhalten sind, damit Frische, Qualität und Sicherheit gewährleistet bleiben.</span></label>
+        <label class="option"><input type="radio" name="A19" value="B"><span>Weil Produkte immer bis zum MHD verkauft werden dürfen, unabhängig von internen Vorgaben.</span></label>
+        <label class="option"><input type="radio" name="A19" value="C"><span>Weil das MHD grundsätzlich keine Bedeutung hat.</span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 20</span><span class="task-title">Umpackverbot</span>
+    <div class="task-prompt">
+      Was bedeutet das Umpackverbot?
+      <div class="options">
+        <label class="option"><input type="radio" name="A20" value="A"><span>Produkte aus der Verkaufstheke dürfen jederzeit wieder in SB-Verpackungen zurückverpackt werden.</span></label>
+        <label class="option"><input type="radio" name="A20" value="B"><span>Produkte aus der SB-Theke dürfen in die Verkaufstheke umgelegt werden; wurden sie jedoch einmal offen geführt, dürfen sie nicht wieder in eine SB-Verpackung zurückverpackt werden.</span></label>
+        <label class="option"><input type="radio" name="A20" value="C"><span>Das Umpackverbot bedeutet nur, dass keine neue Verpackung verwendet werden darf, wenn die alte Verpackung beschädigt ist.</span></label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kapitel 8 -->
+<section class="chapter">
+  <div class="chapter-head"><div class="chapter-number">8</div><h2>Abschluss</h2></div>
+
+  <div class="task">
+    <span class="task-badge">Aufgabe 21</span><span class="task-title">Arbeitsalltag</span>
+    <div class="task-prompt">
+      <span class="label">Situation:</span>
+      Bei der Arbeit fällt auf, dass ein Produkt nicht eindeutig gekennzeichnet ist. Gleichzeitig ist unklar, ob die Ware noch innerhalb der vorgesehenen Abverkaufszeit liegt.
+      <span class="label">Frage:</span>
+      Wie ist richtig zu handeln?
+      <textarea data-key="A21_Antwort"></textarea>
+    </div>
+  </div>
+
+  <div class="task">
+    <span class="task-title">Selbsteinschätzung des Mitarbeiters</span>
+    <div class="task-prompt">
+      Bitte schätzen Sie sich selbst in Bezug auf Ihre Kenntnisse zu HACCP und Lebensmittelhygiene ein.
+      <table class="self">
+        <thead>
+          <tr><th>Aussage</th><th>trifft zu</th><th>teilweise</th><th>trifft noch nicht zu</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ich kenne die wichtigsten Hygieneregeln.</td>
+            <td><input type="radio" name="S1" value="trifft zu"></td>
+            <td><input type="radio" name="S1" value="teilweise"></td>
+            <td><input type="radio" name="S1" value="trifft noch nicht zu"></td>
+          </tr>
+          <tr>
+            <td>Ich verstehe, warum Händehygiene wichtig ist.</td>
+            <td><input type="radio" name="S2" value="trifft zu"></td>
+            <td><input type="radio" name="S2" value="teilweise"></td>
+            <td><input type="radio" name="S2" value="trifft noch nicht zu"></td>
+          </tr>
+          <tr>
+            <td>Ich kenne die vier Prozessschritte.</td>
+            <td><input type="radio" name="S3" value="trifft zu"></td>
+            <td><input type="radio" name="S3" value="teilweise"></td>
+            <td><input type="radio" name="S3" value="trifft noch nicht zu"></td>
+          </tr>
+          <tr>
+            <td>Ich weiß, worauf beim Wareneingang zu achten ist.</td>
+            <td><input type="radio" name="S4" value="trifft zu"></td>
+            <td><input type="radio" name="S4" value="teilweise"></td>
+            <td><input type="radio" name="S4" value="trifft noch nicht zu"></td>
+          </tr>
+          <tr>
+            <td>Ich kann Grundregeln der Lagerhaltung erklären.</td>
+            <td><input type="radio" name="S5" value="trifft zu"></td>
+            <td><input type="radio" name="S5" value="teilweise"></td>
+            <td><input type="radio" name="S5" value="trifft noch nicht zu"></td>
+          </tr>
+          <tr>
+            <td>Ich kenne die Bedeutung von Rezept, Spezifikation und Produktionsprotokoll.</td>
+            <td><input type="radio" name="S6" value="trifft zu"></td>
+            <td><input type="radio" name="S6" value="teilweise"></td>
+            <td><input type="radio" name="S6" value="trifft noch nicht zu"></td>
+          </tr>
+          <tr>
+            <td>Ich weiß, warum Etikettierung und Tara wichtig sind.</td>
+            <td><input type="radio" name="S7" value="trifft zu"></td>
+            <td><input type="radio" name="S7" value="teilweise"></td>
+            <td><input type="radio" name="S7" value="trifft noch nicht zu"></td>
+          </tr>
+          <tr>
+            <td>Ich kenne die wichtigsten Anforderungen im Verkauf.</td>
+            <td><input type="radio" name="S8" value="trifft zu"></td>
+            <td><input type="radio" name="S8" value="teilweise"></td>
+            <td><input type="radio" name="S8" value="trifft noch nicht zu"></td>
+          </tr>
+          <tr>
+            <td>Ich weiß, was bei Abweichungen zu tun ist.</td>
+            <td><input type="radio" name="S9" value="trifft zu"></td>
+            <td><input type="radio" name="S9" value="teilweise"></td>
+            <td><input type="radio" name="S9" value="trifft noch nicht zu"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="signature-row">
+        <div class="sig">
+          <label for="sig_ma">Datum, Unterschrift Mitarbeiter</label>
+          <input type="text" id="sig_ma" placeholder="Name / Datum">
+        </div>
+        <div class="sig">
+          <label for="sig_pr">Datum, Unterschrift Prüfer</label>
+          <input type="text" id="sig_pr" placeholder="Name / Datum">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="submit-bar">
+  <div class="info">Beim Absenden wird Ihr Mail-Programm geöffnet und die Antworten werden an <strong>julie.kuntz@b--p.de</strong> vorbereitet.</div>
+  <button class="submit" id="submitBtn" type="button">Prüfungsbogen absenden</button>
+</div>
+
+<div class="footer">Von Hand mit Herz · GLOBUS Fachmetzgerei · HACCP und Lebensmittelhygiene</div>
+</div>
+
+<script>
+(function() {
+  const EMPFAENGER = "julie.kuntz@b--p.de";
+
+  const antwortMap = {
+    A2: {
+      A: "HACCP dient vor allem dazu, Produkte schneller herzustellen und Arbeitszeit einzusparen.",
+      B: "HACCP hilft dabei, mögliche Gefahren im Umgang mit Lebensmitteln zu erkennen, zu bewerten und durch geeignete Maßnahmen zu beherrschen.",
+      C: "HACCP bedeutet, dass nur die Führungskraft für Hygiene und Lebensmittelsicherheit verantwortlich ist."
+    },
+    A3: {
+      A: "Biologische Gefahren, chemische Gefahren und physikalische Gefahren.",
+      B: "Persönliche Gefahren, technische Gefahren und organisatorische Gefahren.",
+      C: "Kleine Gefahren, mittlere Gefahren und große Gefahren."
+    },
+    A4: {
+      A: "Private Gegenstände gehören in den Spind, Arbeitskleidung sauber, Kopfbedeckung, Schmuck ab, Hände hygienisch sauber.",
+      B: "Private Gegenstände dürfen mitgenommen werden, wenn sie keinen Kontakt zur Ware haben.",
+      C: "Schmuck und Uhr erlaubt, wenn regelmäßig gereinigt."
+    },
+    A5: {
+      A: "Schmuck ist nur aus optischen Gründen nicht erwünscht.",
+      B: "Schmuck ist erlaubt, wenn er unter der Arbeitskleidung getragen wird.",
+      C: "Schmuck kann Keime tragen, Händehygiene erschweren oder als Fremdkörper in Lebensmittel gelangen."
+    },
+    A6: {
+      A: "Direkt weiterarbeiten, weil Handy nur kurz benutzt wurde.",
+      B: "Hände hygienisch reinigen; private Gegenstände gehören nicht in den Arbeitsbereich.",
+      C: "Weiterarbeiten, wenn Ware nicht direkt mit der Hand berührt wird."
+    },
+    A7: {
+      A: "Wareneingang, Lagerung, Produktion/Prepacking, Verkauf.",
+      B: "Einkauf, Büro, Personalplanung, Verkauf.",
+      C: "Bestellung, Werbung, Kasse, Reinigung."
+    },
+    A8: {
+      A: "Fehler können sich fortsetzen; falsche Ware wird gelagert, verarbeitet oder verkauft.",
+      B: "Fehler am Wareneingang können später korrigiert werden.",
+      C: "Nur Fehler im Verkauf sind wichtig."
+    },
+    A9: {
+      A: "Farbe der Arbeitskleidung, Pausenplanung, Regalhöhe, Dekoration.",
+      B: "Schädlingsbefall, Sauberkeit/Unversehrtheit Umverpackung, Umgebungstemperatur, MHD/Restlaufzeit, Identitätskontrolle bei Rindfleisch/Bio/MSC.",
+      C: "Nur Lieferschein überprüfen reicht aus."
+    },
+    A10: {
+      A: "Mündliche Aussage genügt.",
+      B: "Nur unauffällige Lieferungen werden dokumentiert.",
+      C: "Nachvollziehbar festhalten; Datum, Unterschrift, Auffälligkeiten und Temperaturwerte bei Grenzwertüberschreitung."
+    },
+    A11: {
+      A: "Sauber/ordentlich, bodenfrei, Temperatur prüfen, FiFo, trennen, abdecken/verpacken, Kennzeichnung.",
+      B: "Ware darf auf dem Boden stehen, wenn verpackt.",
+      C: "Rohes und Gegartes dürfen zusammen gelagert werden."
+    },
+    A12: {
+      A: "Ware kann verderben, verwechselt oder unsicher werden; Beanstandungen möglich.",
+      B: "Nichts passiert, solange die Ware gut aussieht.",
+      C: "Betrifft nur die Ordnung, nicht die Sicherheit."
+    },
+    A13: {
+      A: "First In / Fast Out.",
+      B: "Food In / Food Out.",
+      C: "First In / First Out: Ware, die zuerst eingegangen/hergestellt wurde, wird zuerst verwendet."
+    },
+    A14: {
+      A: "Die vollste Kiste zuerst.",
+      B: "Die Kiste mit dem ältesten Eingangs-/Herstellungsdatum.",
+      C: "Die vorderste, am leichtesten erreichbare Kiste."
+    },
+    A15: {
+      A: "Hygienisch einwandfreie Abläufe und Rückverfolgbarkeit sicherstellen.",
+      B: "Möglichst schnell arbeiten, Dokumentation später.",
+      C: "Nur das fertige Produkt zählt."
+    },
+    A16: {
+      A: "Dokumentation abschließen, verkaufen, danach Etikett/Tara prüfen.",
+      B: "Rezept, hygienisch arbeiten, verpacken, Etikett prüfen, Tara prüfen, Dokumentation abschließen.",
+      C: "Verpacken, Etikett, Rezept suchen, Tara, hygienisch, Doku weglassen."
+    },
+    A17: {
+      A: "Tara nur wichtig bei beschädigter Verpackung.",
+      B: "Tara betrifft nur die Optik des Etiketts.",
+      C: "Falsche Tara → falsches Gewicht/Preis → Kunden falsch belastet, Beanstandungen bei Kontrollen."
+    },
+    A18: {
+      A: "Nettogewicht falsch berechnet, Preis kann falsch sein.",
+      B: "Ware wird länger haltbar.",
+      C: "Tara hat keinen Einfluss."
+    },
+    A19: {
+      A: "Zusätzlich interne Abverkaufszeiten/Restlaufzeiten einhalten (Frische, Qualität, Sicherheit).",
+      B: "Produkte immer bis MHD verkaufen.",
+      C: "MHD hat keine Bedeutung."
+    },
+    A20: {
+      A: "Aus Verkaufstheke jederzeit zurück in SB-Verpackung möglich.",
+      B: "SB-Ware darf in Verkaufstheke; einmal offen geführt jedoch nicht mehr zurück in SB-Verpackung.",
+      C: "Betrifft nur beschädigte Verpackungen."
+    }
+  };
+
+  function sammleAntworten() {
+    const felder = {
+      "Name, Vorname": document.getElementById("name").value.trim(),
+      "Markthalle": document.getElementById("markthalle").value.trim(),
+      "Bereich": document.getElementById("bereich").value.trim(),
+      "Datum": document.getElementById("datum").value.trim(),
+      "Vorgesetzter": document.getElementById("vorgesetzter").value.trim()
+    };
+
+    let text = "PRÜFUNGSBOGEN – HACCP UND LEBENSMITTELHYGIENE\n";
+    text += "GLOBUS Fachmetzgerei\n";
+    text += "==========================================\n\n";
+
+    text += "STAMMDATEN\n----------\n";
+    for (const [k, v] of Object.entries(felder)) {
+      text += k + ": " + (v || "(nicht angegeben)") + "\n";
+    }
+    text += "\n";
+
+    const textAntworten = document.querySelectorAll("textarea[data-key]");
+    const antwortenText = {};
+    textAntworten.forEach(t => { antwortenText[t.dataset.key] = t.value.trim(); });
+
+    const mcAntwort = (name) => {
+      const gewaehlt = document.querySelector('input[name="' + name + '"]:checked');
+      if (!gewaehlt) return "(keine Antwort)";
+      const buchstabe = gewaehlt.value;
+      const text = antwortMap[name] ? antwortMap[name][buchstabe] : "";
+      return buchstabe + ") " + text;
+    };
+
+    text += "KAPITEL 1 – Grundverständnis Lebensmittelhygiene und HACCP\n";
+    text += "----------------------------------------------------------\n";
+    text += "Aufgabe 1 – Lebensmittelhygiene erklären:\n" + (antwortenText["A1_Erklaerung"] || "(keine Antwort)") + "\n\n";
+    text += "Aufgabe 1 – Zusatzfrage (Warum wichtig in Fachmetzgerei):\n" + (antwortenText["A1_Zusatz"] || "(keine Antwort)") + "\n\n";
+    text += "Aufgabe 1 – Bildaufgabe (5 Hygienefehler):\n" + (antwortenText["A1_Bildfehler"] || "(keine Antwort)") + "\n\n";
+    text += "Aufgabe 2 – HACCP verstehen: " + mcAntwort("A2") + "\n\n";
+    text += "Aufgabe 3 – Gefahrenarten bei HACCP: " + mcAntwort("A3") + "\n\n";
+
+    text += "KAPITEL 2 – Infektionsschutz und Personalhygiene\n";
+    text += "------------------------------------------------\n";
+    text += "Aufgabe 4 – Persönliche Hygiene vor Arbeitsbeginn: " + mcAntwort("A4") + "\n\n";
+    text += "Aufgabe 5 – Schmuck beim Umgang mit Lebensmitteln: " + mcAntwort("A5") + "\n\n";
+    text += "Aufgabe 6 – Situation Handy / Ware verpacken: " + mcAntwort("A6") + "\n\n";
+
+    text += "KAPITEL 3 – Relevante Prozessschritte\n";
+    text += "-------------------------------------\n";
+    text += "Aufgabe 7 – Vier Prozessschritte: " + mcAntwort("A7") + "\n\n";
+    text += "Aufgabe 8 – Warum jeder Prozessschritt wichtig ist: " + mcAntwort("A8") + "\n\n";
+
+    text += "KAPITEL 4 – Wareneingangskontrolle\n";
+    text += "----------------------------------\n";
+    text += "Aufgabe 9 – Wareneingang prüfen: " + mcAntwort("A9") + "\n";
+    text += "Aufgabe 9 – Bildaufgabe (3 Hygienefehler):\n" + (antwortenText["A9_Bildfehler"] || "(keine Antwort)") + "\n\n";
+    text += "Aufgabe 10 – Dokumentation Wareneingang: " + mcAntwort("A10") + "\n\n";
+
+    text += "KAPITEL 5 – Lagerhaltung\n";
+    text += "------------------------\n";
+    text += "Aufgabe 11 – Ordnungsgemäße Lagerhaltung: " + mcAntwort("A11") + "\n\n";
+    text += "Aufgabe 12 – Folgen falscher Lagerhaltung: " + mcAntwort("A12") + "\n\n";
+    text += "Aufgabe 13 – FiFo erklären: " + mcAntwort("A13") + "\n\n";
+    text += "Aufgabe 14 – FiFo anwenden: " + mcAntwort("A14") + "\n\n";
+
+    text += "KAPITEL 6 – Produktion / Prepacking\n";
+    text += "-----------------------------------\n";
+    text += "Aufgabe 15 – Grundanforderungen Produktion: " + mcAntwort("A15") + "\n\n";
+    text += "Aufgabe 16 – Produktionsablauf: " + mcAntwort("A16") + "\n\n";
+    text += "Aufgabe 17 – Tara: " + mcAntwort("A17") + "\n\n";
+    text += "Aufgabe 18 – Tara in der Praxis: " + mcAntwort("A18") + "\n\n";
+
+    text += "KAPITEL 7 – Verkauf\n";
+    text += "-------------------\n";
+    text += "Aufgabe 19 – MHD und Abverkaufszeit: " + mcAntwort("A19") + "\n\n";
+    text += "Aufgabe 20 – Umpackverbot: " + mcAntwort("A20") + "\n\n";
+
+    text += "KAPITEL 8 – Abschluss\n";
+    text += "---------------------\n";
+    text += "Aufgabe 21 – Situation Kennzeichnung/Abverkaufszeit:\n" + (antwortenText["A21_Antwort"] || "(keine Antwort)") + "\n\n";
+
+    text += "SELBSTEINSCHÄTZUNG\n------------------\n";
+    const selbst = [
+      ["S1", "Ich kenne die wichtigsten Hygieneregeln"],
+      ["S2", "Ich verstehe, warum Händehygiene wichtig ist"],
+      ["S3", "Ich kenne die vier Prozessschritte"],
+      ["S4", "Ich weiß, worauf beim Wareneingang zu achten ist"],
+      ["S5", "Ich kann Grundregeln der Lagerhaltung erklären"],
+      ["S6", "Ich kenne die Bedeutung von Rezept, Spezifikation und Produktionsprotokoll"],
+      ["S7", "Ich weiß, warum Etikettierung und Tara wichtig sind"],
+      ["S8", "Ich kenne die wichtigsten Anforderungen im Verkauf"],
+      ["S9", "Ich weiß, was bei Abweichungen zu tun ist"]
+    ];
+    selbst.forEach(([name, label]) => {
+      const gewaehlt = document.querySelector('input[name="' + name + '"]:checked');
+      text += "- " + label + ": " + (gewaehlt ? gewaehlt.value : "(keine Angabe)") + "\n";
+    });
+    text += "\n";
+
+    text += "UNTERSCHRIFTEN\n--------------\n";
+    text += "Mitarbeiter: " + (document.getElementById("sig_ma").value.trim() || "(nicht angegeben)") + "\n";
+    text += "Prüfer: " + (document.getElementById("sig_pr").value.trim() || "(nicht angegeben)") + "\n";
+
+    return { text, name: felder["Name, Vorname"], datum: felder["Datum"] };
+  }
+
+  document.getElementById("submitBtn").addEventListener("click", function() {
+    const { text, name, datum } = sammleAntworten();
+    const betreff = "Prüfungsbogen HACCP – " + (name || "Mitarbeiter") + (datum ? " (" + datum + ")" : "");
+    const mailto = "mailto:" + EMPFAENGER +
+      "?subject=" + encodeURIComponent(betreff) +
+      "&body=" + encodeURIComponent(text);
+
+    if (mailto.length > 1900) {
+      const bestaetigt = confirm(
+        "Die Antworten sind sehr umfangreich. Manche Mail-Programme kürzen lange Texte.\n\n" +
+        "Klicken Sie OK, um die Antworten trotzdem per Mail-Programm zu öffnen.\n" +
+        "Klicken Sie ABBRECHEN, um die Antworten stattdessen in die Zwischenablage zu kopieren."
+      );
+      if (!bestaetigt) {
+        navigator.clipboard.writeText(text).then(function() {
+          alert("Die Antworten wurden in die Zwischenablage kopiert.\nBitte öffnen Sie eine neue Mail an " + EMPFAENGER + " und fügen Sie den Text mit Strg+V (bzw. Cmd+V) ein.");
+        }, function() {
+          alert("Kopieren nicht möglich. Bitte markieren Sie den Text manuell.");
+        });
+        return;
+      }
+    }
+
+    window.location.href = mailto;
+  });
+})();
+</script>
+</body>
+</html>
