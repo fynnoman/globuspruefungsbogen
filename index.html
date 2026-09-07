@@ -287,6 +287,51 @@
     .submit-bar { flex-direction: column; align-items: stretch; }
     button.submit { width: 100%; }
   }
+
+  .title-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .title-row .title-meta { flex: 1; min-width: 0; }
+  .title-image {
+    width: 180px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .task-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin: 14px auto;
+  }
+  .task-image.full { width: 100%; }
+  .task-image.medium { max-width: 72%; }
+  .task-image.small { max-width: 58%; }
+  .task-image.right-half {
+    max-width: 58%;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  @media (max-width: 720px) {
+    .title-row { flex-direction: column; }
+    .title-image { width: 100%; max-width: 320px; align-self: center; }
+  }
+  @media (max-width: 640px) {
+    .task-image.medium,
+    .task-image.small,
+    .task-image.right-half {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 </style>
 </head>
 <body>
@@ -296,14 +341,19 @@
   <h1>Kompetenznachweis HACCP und Lebensmittelhygiene</h1>
   <div class="sub">Prüfungsbogen · GLOBUS Fachmetzgerei · Von Hand mit Herz</div>
 
-  <div class="meta-grid">
-    <div><label for="name">Name, Vorname</label><input type="text" id="name" name="name"></div>
-    <div><label for="markthalle">Markthalle</label><input type="text" id="markthalle" name="markthalle"></div>
-    <div><label for="bereich">Bereich</label><input type="text" id="bereich" name="bereich"></div>
-    <div><label for="datum">Datum</label><input type="date" id="datum" name="datum"></div>
-    <div><label for="vorgesetzter">Vorgesetzter</label><input type="text" id="vorgesetzter" name="vorgesetzter"></div>
+  <div class="title-row">
+    <div class="title-meta">
+      <div class="meta-grid">
+        <div><label for="name">Name, Vorname</label><input type="text" id="name" name="name"></div>
+        <div><label for="markthalle">Markthalle</label><input type="text" id="markthalle" name="markthalle"></div>
+        <div><label for="bereich">Bereich</label><input type="text" id="bereich" name="bereich"></div>
+        <div><label for="datum">Datum</label><input type="date" id="datum" name="datum"></div>
+        <div><label for="vorgesetzter">Vorgesetzter</label><input type="text" id="vorgesetzter" name="vorgesetzter"></div>
+      </div>
+      <div class="qualifier"><strong>Qualifizierungsbereich:</strong> HACCP und Lebensmittelhygiene</div>
+    </div>
+    <img class="title-image" src="images/01_Titelseite_Metzger.jpg" alt="GLOBUS Fachmetzger">
   </div>
-  <div class="qualifier"><strong>Qualifizierungsbereich:</strong> HACCP und Lebensmittelhygiene</div>
 
   <div class="levels">
     <div class="level koennen"><h4>Können</h4>Ich weiß, was ich tun muss und mache es richtig.</div>
@@ -328,7 +378,8 @@
       <textarea data-key="A1_Zusatz"></textarea>
 
       <span class="label">Bildaufgabe:</span>
-      Im Prüfungsbogen sind mindestens 5 Hygienefehler auf dem Bild zu erkennen. Bitte benennen Sie hier die Fehler, die Ihnen aufgefallen sind.
+      Betrachten Sie das nachfolgende Bild. Bitte kreisen Sie mindestens 5 Fehler ein und benennen Sie diese unten.
+      <img class="task-image full" src="images/02_Aufgabe1_Fehlerbild_Hygiene.jpg" alt="Fehlerbild Lebensmittelhygiene">
       <textarea data-key="A1_Bildfehler" placeholder="z. B. Getränk im Arbeitsbereich, Handy auf der Arbeitsfläche, ..."></textarea>
     </div>
   </div>
@@ -383,12 +434,14 @@
         <label class="option"><input type="radio" name="A5" value="B"><span>Schmuck ist erlaubt, wenn er unter der Arbeitskleidung getragen wird.</span></label>
         <label class="option"><input type="radio" name="A5" value="C"><span>Schmuck kann Keime tragen, die Händehygiene erschweren oder als Fremdkörper in Lebensmittel gelangen.</span></label>
       </div>
+      <img class="task-image right-half" src="images/03_Aufgabe5_Metzger_Haarnetz.jpg" alt="Metzger mit Haarnetz, Schmuckverbot">
     </div>
   </div>
 
   <div class="task">
     <span class="task-badge">Aufgabe 6</span><span class="task-title">Situation aus dem Arbeitsalltag</span>
     <div class="task-prompt">
+      <img class="task-image medium" src="images/04_Aufgabe6_Handy_Pausenraum.jpg" alt="Mitarbeiter mit Handy nach der Pause">
       <span class="label">Situation:</span>
       Ein Mitarbeiter kommt aus der Pause zurück, nimmt sein Handy aus der Tasche und möchte direkt danach Ware verpacken.
       <span class="label">Frage:</span>
@@ -415,6 +468,7 @@
         <label class="option"><input type="radio" name="A7" value="B"><span>Einkauf, Büro, Personalplanung, Verkauf.</span></label>
         <label class="option"><input type="radio" name="A7" value="C"><span>Bestellung, Werbung, Kasse, Reinigung.</span></label>
       </div>
+      <img class="task-image full" src="images/05_Aufgabe7_Vier_Prozessschritte.jpg" alt="Vier Prozessschritte: Lieferung, Kühlhaus, Zuschnitt, Theke">
     </div>
   </div>
 
@@ -445,7 +499,8 @@
         <label class="option"><input type="radio" name="A9" value="C"><span>Es reicht vollkommen aus, nur den Lieferschein zu überprüfen.</span></label>
       </div>
       <span class="label">Bildaufgabe:</span>
-      Im Prüfungsbogen sind mindestens 3 Hygienefehler auf dem Bild zu erkennen. Bitte benennen Sie hier die Fehler, die Ihnen aufgefallen sind.
+      Betrachten Sie das nachfolgende Bild. Bitte kreisen Sie mindestens 3 Fehler ein und benennen Sie diese unten.
+      <img class="task-image full" src="images/06_Aufgabe9_Fehlerbild_Wareneingang.jpg" alt="Fehlerbild Wareneingangskontrolle">
       <textarea data-key="A9_Bildfehler" placeholder="z. B. beschädigte Umverpackung, überschrittenes MHD, Temperatur zu hoch, ..."></textarea>
     </div>
   </div>
@@ -453,7 +508,8 @@
   <div class="task">
     <span class="task-badge">Aufgabe 10</span><span class="task-title">Dokumentation der Wareneingangsprüfung</span>
     <div class="task-prompt">
-      Was muss bei der Wareneingangsprüfung dokumentiert werden?
+      Was muss bei der Wareneingangsprüfung dokumentiert werden? <em>Bitte kreuzen Sie eine richtige Antwort an.</em>
+      <img class="task-image medium" src="images/07_Aufgabe10_Dokumentation_Wareneingang.jpg" alt="Dokumentation der Wareneingangsprüfung">
       <div class="options">
         <label class="option"><input type="radio" name="A10" value="A"><span>Es reicht aus, wenn mündlich gesagt wird, dass die Lieferung in Ordnung war.</span></label>
         <label class="option"><input type="radio" name="A10" value="B"><span>Dokumentiert werden nur Lieferungen, bei denen keine Auffälligkeiten festgestellt wurden.</span></label>
@@ -515,6 +571,7 @@
         <label class="option"><input type="radio" name="A14" value="B"><span>Die Kiste mit dem ältesten Eingangs- oder Herstellungsdatum.</span></label>
         <label class="option"><input type="radio" name="A14" value="C"><span>Die Kiste, die vorne steht und am leichtesten erreichbar ist.</span></label>
       </div>
+      <img class="task-image medium" src="images/08_Aufgabe14_FiFo_Kuehlhaus.jpg" alt="FiFo im Kühlhaus, Kisten mit unterschiedlichen Datumsangaben">
     </div>
   </div>
 </section>
@@ -532,6 +589,7 @@
         <label class="option"><input type="radio" name="A15" value="B"><span>Möglichst schnell arbeiten, auch wenn Dokumentation und Kennzeichnung später erfolgen.</span></label>
         <label class="option"><input type="radio" name="A15" value="C"><span>Nur das fertige Produkt zählt; der Ablauf davor ist nicht entscheidend.</span></label>
       </div>
+      <img class="task-image medium" src="images/09_Aufgabe15_Prepacking.jpg" alt="Prepacking: Etikettierung, Waage, SB-Verpackung">
     </div>
   </div>
 
